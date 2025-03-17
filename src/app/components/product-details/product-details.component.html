@@ -1,1 +1,29 @@
-<p>product-details works!</p>
+
+<div *ngIf="productDetails">
+  <div class="product-container">
+    <div class="product-image">
+      <img [src]="productDetails.thumbnail" alt="{{ productDetails.title }}">
+    </div>
+    
+    <div class="product-info">
+      <h1>{{ productDetails.title }}</h1>
+      <p><strong>Category:</strong> {{ productDetails.category }}</p>
+      <p><strong>Brand:</strong> {{ productDetails.brand }}</p>
+      <p><strong>Price:</strong> ${{ productDetails.price }}</p>
+      <p><strong>Rating:</strong> ⭐{{ productDetails.rating }}</p>
+      <p>{{ productDetails.description }}</p>
+
+      <button class="buy-now">Buy Now</button>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- <div class="product-gallery">
+    <h3>Product Images:</h3>
+    <div class="image-list">
+      <img *ngFor="let image of productDetails.images" [src]="image" alt="{{ productDetails.title }}">
+    </div>
+  </div> -->
+</div>
+
+

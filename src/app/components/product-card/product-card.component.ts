@@ -5,7 +5,7 @@ import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product-card',
-  imports: [CommonModule,RouterLink],
+  imports: [CommonModule],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.css'
 })
