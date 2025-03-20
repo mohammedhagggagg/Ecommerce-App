@@ -11,6 +11,7 @@ import { ThemeSettingsComponent } from './components/theme-settings/theme-settin
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CardComponent } from './components/card/card.component';
+import { AddProductReactiveComponent } from './components/add-product-reactive/add-product-reactive.component';
 
 export const routes: Routes = [
     {
@@ -22,6 +23,12 @@ export const routes: Routes = [
         path:"add-product",
         component:AddProductComponent,
         title:"Add Product",
+        canActivate: [authentecationGuard]
+    },
+    {
+        path:"add-product-reactive",
+        component:AddProductReactiveComponent,
+        title:"Add Product-Reactive",
         canActivate: [authentecationGuard]
     },
     {

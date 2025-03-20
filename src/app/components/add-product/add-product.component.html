@@ -1,1 +1,121 @@
-<p>add-product works!</p>
+<h2>Add Product | Template forms</h2>
+<form #productForm="ngForm" (ngSubmit)="handleSubmitForm(productForm)">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      name="name"
+      [(ngModel)]="formValues.name"
+      required
+      #name="ngModel"
+      minlength="3"
+      maxlength="10"
+    />
+
+    @if(name.invalid && (name.dirty || name.touched)){
+    <div class="text-danger">
+      @if(name.hasError('required')) {
+      <span> Name Required</span>
+      }@else if (name.hasError('minlength')) {
+      <span> Name should be atleast 3 characters</span>
+      }@else if (name.hasError('maxlength')) {
+      <span> Name should be atmost 10 characters</span>
+      }
+    </div>
+    }
+  </div>
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input
+      type="text"
+      class="form-control"
+      id="title"
+      name="title"
+      [(ngModel)]="formValues.title"
+      required
+      #title="ngModel"
+        minlength="3"
+        maxlength="20"
+
+    />
+    @if(title.invalid && (title.dirty || title.touched)){
+        <div class="text-danger">
+          @if(title.hasError('required')) {
+          <span> title Required</span>
+          }@else if (title.hasError('minlength')) {
+          <span> title should be atleast 3 characters</span>
+          }@else if (title.hasError('maxlength')) {
+          <span> title should be atmost 20 characters</span>
+          
+        }
+        </div>
+    }
+  </div>
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input
+      type="number"
+      class="form-control"
+      id="price"
+      name="price"
+      [(ngModel)]="formValues.price"
+      required
+      #price="ngModel"
+    [max]="20000"
+    [min]="1000"
+    />
+    @if (price.invalid && (price.dirty || price.touched)) {
+        <div class="text-danger">
+          @if (price.hasError('required')) {
+            <span>Price is required</span>
+          } @else if (price.hasError('min')) {
+            <span>Price should be at least 1000</span>
+          } @else if (price.hasError('max')) {
+            <span>Price should be at most 20000</span>
+          }
+        </div>
+      }
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea
+      class="form-control"
+      id="description"
+      name="description"
+      [(ngModel)]="formValues.description"
+      #description="ngModel"
+      required
+        minlength="10"
+        maxlength="200"
+
+    ></textarea>
+    @if(description.invalid && (description.dirty || description.touched)){
+        <div class="text-danger">
+          @if(description.hasError('required')) {
+          <span> Description Required</span>
+          }@else if (description.hasError('minlength')) {
+          <span> Description should be atleast 10 characters</span>
+          }@else if (description.hasError('maxlength')) {
+          <span> Description should be atmost 200 characters</span>
+          }
+        </div>
+    }
+  </div>
+  <div class="form-group">
+    <label for="category">Category</label>
+    <select
+      class="form-control"
+      id="category"
+      name="category"
+      [(ngModel)]="formValues.category"
+      required
+    >
+      <option value="Electronics">Electronics</option>
+      <option value="Clothing">Clothing</option>
+      <option value="Home">Home</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">Submit</button>
+</form>
