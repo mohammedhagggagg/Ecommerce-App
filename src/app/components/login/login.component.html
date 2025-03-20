@@ -12,7 +12,7 @@
       #email="ngModel"
       minlength="3"
       maxlength="50"
-      email="true"
+      pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
     />
     <!-- || email.touched -->
     @if(email.invalid && (email.dirty  || loginForm.submitted)){
@@ -20,11 +20,11 @@
       @if(email.hasError('required')) {
       <span> Email Required</span>
       }@else if (email.hasError('minlength')) {
-      <span> Email should be atleast 3 characters</span>
+      <span> Email should be at least 3 characters</span>
       }@else if (email.hasError('maxlength')) {
-      <span> Email should be atmost 50 characters</span>
-      }@else if (email.hasError('email')) {
-      <span> Email should be valid</span>
+      <span> Email should be at most 50 characters</span>
+      }@else if (email.hasError('pattern')) {
+      <span> Invalid Email Format</span>
       }
     </div>
     }
@@ -49,13 +49,13 @@
       @if(Password.hasError('required')) {
       <span> password Required</span>
       }@else if (Password.hasError('minlength')) {
-      <span> Password should be atleast 8 characters</span>
+      <span> Password should be at least 8 characters</span>
       }@else if (Password.hasError('maxlength')) {
-      <span> Password should be atmost 20 characters</span>
+      <span> Password should be at most 20 characters</span>
 
       }@else if (Password.hasError('pattern')) {
       <span>
-        Password should contain atleast one uppercase, one lowercase, one number
+        Password should contain at least one uppercase, one lowercase, one number
         and one special character</span
       >
       }
@@ -67,3 +67,6 @@
     Submit
   </button>
 </form>
+<p class="mt-3">
+  Don't have an account? <a routerLink="/register">Register here</a>
+</p>
