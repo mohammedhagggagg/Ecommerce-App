@@ -1,5 +1,5 @@
 <h2>Add Product | Reactive forms</h2>
-<form [formGroup]="productForm" (ngSubmit)="handleSubmitForm()">
+<form  [formGroup]="productForm" (ngSubmit)="handleSubmitForm()">
   <div class="form-group">
     <label for="name">Name</label>
     <input
@@ -8,10 +8,10 @@
       id="name"
       name="name"
       formControlName="name"
+    
     />
 
-    @if(productForm.controls['name'].invalid &&
-    productForm.controls['name'].dirty || productForm.controls['name'].touched){
+    @if(productForm.controls['name'].invalid && productForm.controls['name'].dirty || productForm.controls['name'].touched){
     <div class="text-danger">
       @if(productForm.controls['name'].hasError('required')) {
       <span> Name Required</span>
@@ -31,19 +31,19 @@
       id="title"
       name="title"
       formControlName="title"
-    />
-    @if(formControls['title'].invalid && (formControls['title'].dirty ||
-    formControls['title'].touched)){
-    <div class="text-danger">
-      @if(formControls['title'].hasError('required')) {
-      <span> title Required</span>
-      }@else if (formControls['title'].hasError('minlength')) {
-      <span> title should be atleast 3 characters</span>
-      }@else if (formControls['title'].hasError('maxlength')) {
-      <span> title should be atmost 200 characters</span>
 
-      }
-    </div>
+    />
+    @if(formControls['title'].invalid && (formControls['title'].dirty || formControls['title'].touched)){
+        <div class="text-danger">
+          @if(formControls['title'].hasError('required')) {
+          <span> title Required</span>
+          }@else if (formControls['title'].hasError('minlength')) {
+          <span> title should be atleast 3 characters</span>
+          }@else if (formControls['title'].hasError('maxlength')) {
+          <span> title should be atmost 200 characters</span>
+          
+        }
+        </div>
     }
   </div>
   <div class="form-group">
@@ -55,18 +55,17 @@
       name="price"
       formControlName="price"
     />
-    @if (formControls['price'].invalid && (formControls['price'].dirty ||
-    formControls['price'].touched)) {
-    <div class="text-danger">
-      @if (formControls['price'].hasError('required')) {
-      <span>Price is required</span>
-      } @else if (formControls['price'].hasError('min')) {
-      <span>Price should be at least 1000</span>
-      } @else if (formControls['price'].hasError('max')) {
-      <span>Price should be at most 20000</span>
+    @if (formControls['price'].invalid && (formControls['price'].dirty || formControls['price'].touched)) {
+        <div class="text-danger">
+          @if (formControls['price'].hasError('required')) {
+            <span>Price is required</span>
+          } @else if (formControls['price'].hasError('min')) {
+            <span>Price should be at least 1000</span>
+          } @else if (formControls['price'].hasError('max')) {
+            <span>Price should be at most 20000</span>
+          }
+        </div>
       }
-    </div>
-    }
   </div>
   <div class="form-group">
     <label for="description">Description</label>
@@ -74,24 +73,30 @@
       class="form-control"
       id="description"
       name="description"
+    
       formControlName="description"
     ></textarea>
-    @if(formControls['description'].invalid &&
-    (formControls['description'].dirty || formControls['description'].touched)){
-    <div class="text-danger">
-      @if(formControls['description'].hasError('required')) {
-      <span> Description Required</span>
-      }@else if (formControls['description'].hasError('minlength')) {
-      <span> Description should be atleast 10 characters</span>
-      }@else if (formControls['description'].hasError('maxlength')) {
-      <span> Description should be atmost 200 characters</span>
-      }
-    </div>
+    @if(formControls['description'].invalid && (formControls['description'].dirty || formControls['description'].touched)){
+        <div class="text-danger">
+          @if(formControls['description'].hasError('required')) {
+          <span> Description Required</span>
+          }@else if (formControls['description'].hasError('minlength')) {
+          <span> Description should be atleast 10 characters</span>
+          }@else if (formControls['description'].hasError('maxlength')) {
+          <span> Description should be atmost 200 characters</span>
+          }
+        </div>
     }
   </div>
   <div class="form-group">
     <label for="category">Category</label>
-    <select class="form-control" id="category" name="category">
+    <select
+      class="form-control"
+      id="category"
+      name="category"
+     
+    
+    >
       <option value="Electronics">Electronics</option>
       <option value="Clothing">Clothing</option>
       <option value="Home">Home</option>

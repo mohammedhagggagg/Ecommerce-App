@@ -1,1 +1,137 @@
-<p>register works!</p>
+<h2>Register Form | Reactive forms</h2>
+<form [formGroup]="registerForm" (ngSubmit)="handleSubmitForm()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      name="name"
+      formControlName="name"
+    />
+
+    @if(registerForm.controls['name'].invalid &&
+    registerForm.controls['name'].dirty ||
+    registerForm.controls['name'].touched){
+    <div class="text-danger">
+      @if(registerForm.controls['name'].hasError('required')) {
+      <span> Name Required</span>
+      }@else if (registerForm.controls['name'].hasError('minlength')) {
+      <span> Name should be atleast 3 characters</span>
+      }@else if (registerForm.controls['name'].hasError('maxlength')) {
+      <span> Name should be atmost 100 characters</span>
+      }
+    </div>
+    }
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      name="email"
+      formControlName="email"
+    />
+    @if(formControls['email'].invalid && (formControls['email'].dirty ||
+    formControls['email'].touched)){
+    <div class="text-danger">
+      @if(formControls['email'].hasError('required')) {
+      <span> email Required</span>
+      }@else if (formControls['email'].hasError('email')) {
+      <span> email should be valid</span>
+      }
+    </div>
+    }
+  </div>
+  <div class="form-group">
+    <label for="userName">User Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="userName"
+      name="userName"
+      formControlName="userName"
+    />
+    @if (formControls['userName'].invalid && (formControls['userName'].dirty ||
+    formControls['userName'].touched)) {
+    <div class="text-danger">
+      @if (formControls['userName'].hasError('required')) {
+      <span>UserName is required</span>
+      } @else if (formControls['userName'].hasError('min')) {
+      <span>Username must be at least 3 characters</span>
+      } @else if (formControls['userName'].hasError('pattern')) {
+      <span>Username cannot contain spaces</span>
+      }
+    </div>
+    }
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      name="password"
+      formControlName="password"
+    />
+    @if(formControls['password'].invalid && (formControls['password'].dirty ||
+    formControls['password'].touched)){
+    <div class="text-danger">
+      @if(formControls['password'].hasError('required')) {
+      <span> Password Required</span>
+      }@else if (formControls['password'].hasError('minlength')) {
+      <span> Password should be atleast 8 characters</span>
+      }@else if (formControls['password'].hasError('pattern')) {
+      <span>
+        Password must contain at least one uppercase, one lowercase, one digit,
+        and one special character (&#64;*$%#)</span
+      >
+      }
+    </div>
+    }
+  </div>
+
+  <!-- Confirm Password -->
+  <label for="confirmPassword" class="mt-2">Confirm Password</label>
+  <input
+    type="password"
+    class="form-control"
+    id="confirmPassword"
+    formControlName="confirmPassword"
+  />
+  @if (formControls['confirmPassword'].invalid &&
+  (formControls['confirmPassword'].dirty ||
+  formControls['confirmPassword'].touched)) {
+  <div class="text-danger">
+    @if (formControls['confirmPassword'].hasError('required')){
+    <span>Confirm Password is required</span>
+    }
+  </div>
+  } @if (registerForm.errors?.['mismatch'] &&
+  (formControls['confirmPassword'].dirty ||
+  formControls['confirmPassword'].touched)) {
+  <div class="text-danger">
+    <span>Passwords do not match</span>
+  </div>
+  }
+  <br />
+  <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid" >Submit</button>
+</form>
+<!-- 
+1-import ReactiveFormsModule from @angular/forms
+2- ProductForm: FormGroup
+3- initialize the formGroup in the constructor
+ctor(){
+  this.productForm = new FormGroup({
+    name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
+    title: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
+    price: new FormControl('', [Validators.required, Validators.min(1000), Validators.max(20000)]),
+    description: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(200)]),
+    category: new FormControl('Electronics')
+  });
+}
+4- in file HTML using Binding [FormGroup]="productForm"  (ngSubmit)="handleSubmitForm()"
+5- in file HTML using Binding formControlName="name" formControlName="title" formControlName="price" formControlName="description"
+
+-->
