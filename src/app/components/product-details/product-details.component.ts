@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Iproduct } from '../../models/iproduct';
 import { CommonModule } from '@angular/common';
 import { ProductsRequestsService } from '../../services/products-requests.service';
+import { CardService } from '../../services/card.service';
 
 @Component({
   selector: 'app-product-details',
@@ -1676,6 +1677,8 @@ export class ProductDetailsComponent implements OnInit {
   productDetails!: Iproduct;
 
   productsRequestService = inject(ProductsRequestsService);
+  cartService = inject(CardService);
+
 
   constructor(private activatedRoute: ActivatedRoute) {}
 
@@ -1695,6 +1698,22 @@ export class ProductDetailsComponent implements OnInit {
 
     this.productsRequestService
       .getProductById(params_id)
-      .subscribe((response) => this.productDetails =(response));
+      .subscribe((response) => this.productDetails =(response),(error) => console.error(error)
+      );
   }
+  addToCart(): void {
+    this.cartService.addToCart(this.productDetails);
+  }
+  
+  get averageRating(): number {
+    if (!this.productDetails.reviews || this.productDetails.reviews.length === 0) {
+      return 0;
+    }
+    const totalRating = this.productDetails.reviews.reduce((sum, review) => sum + review.rating, 0);
+    return totalRating / this.productDetails.reviews.length;
+  }
+  get stockStatus() {
+    return this.productDetails.stock > 0 ? 'In stock' : 'Out of stock';
+  }
+  
 }

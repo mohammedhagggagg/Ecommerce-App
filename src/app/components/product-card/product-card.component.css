@@ -1,0 +1,11 @@
+.add-to-cart {
+    background-color: green;
+    color: white;
+  }
+  .add-to-cart {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  

@@ -3,6 +3,8 @@ import { ProductCardComponent } from '../product-card/product-card.component';
 import { Iproduct } from '../../models/iproduct';
 import { ProductsRequestsService } from '../../services/products-requests.service';
 
+import { CardService } from '../../services/card.service';
+
 @Component({
   selector: 'app-product-list',
   imports: [ProductCardComponent],
@@ -1673,6 +1675,10 @@ export class ProductListComponent {
   //   },
   // ]; 
   productsRequestService =inject(ProductsRequestsService)
+
+constructor(private cartService: CardService) {
+  
+}
   ngOnInit(){
     this.productsRequestService.getProductsList().subscribe((response) => this.products =(response.products));
   }
@@ -1681,6 +1687,7 @@ export class ProductListComponent {
 
     this.products = this.products.filter((p :Iproduct) => p.id !== id);
   }
+  
 }
 
 /*

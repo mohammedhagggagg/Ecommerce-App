@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CounterService } from '../../services/counter.service';
+import { CardService } from '../../services/card.service';
 
 @Component({
   selector: 'app-header',
@@ -11,10 +12,16 @@ import { CounterService } from '../../services/counter.service';
 export class HeaderComponent {
   private counterService = inject(CounterService);
   counterValue :number = 0;
+  cartCount: number = 0;
+  constructor(public cartService: CardService) {}
   ngOnInit() {
     this.counterService
       .getCounter()
       .subscribe((response) => this.counterValue=response);
+
+     
+      
+    
   }
 }
 
