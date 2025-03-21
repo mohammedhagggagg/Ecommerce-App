@@ -2,16 +2,17 @@ import { Component } from '@angular/core';
 import { Iproduct } from '../../models/iproduct';
 import { CardService } from '../../services/card.service';
 import { CurrencyPipe } from '@angular/common';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
-  imports: [CurrencyPipe],
+  imports: [CurrencyPipe,RouterLink],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
 export class CartComponent {
   cartItems: { product: Iproduct, quantity: number }[] = [];
-  constructor(private cartService: CardService) {
+  constructor(private cartService: CardService,private router: Router) {
     this.cartItems = this.cartService.getCartItems();
   }
 
@@ -38,6 +39,8 @@ export class CartComponent {
     this.cartService.removeFromCart(productId);
     this.cartItems = this.cartService.getCartItems();
   }
+
+ 
 
   // Get total price
   getTotalPrice(): number {

@@ -10,8 +10,9 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ThemeSettingsComponent } from './components/theme-settings/theme-settings.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { CardComponent } from './components/card/card.component';
+
 import { AddProductReactiveComponent } from './components/add-product-reactive/add-product-reactive.component';
+import { CartComponent } from './components/cart/cart.component';
 
 export const routes: Routes = [
     {
@@ -23,13 +24,13 @@ export const routes: Routes = [
         path:"add-product",
         component:AddProductComponent,
         title:"Add Product",
-        canActivate: [authentecationGuard]
+        // canActivate: [authentecationGuard]
     },
     {
         path:"add-product-reactive",
         component:AddProductReactiveComponent,
         title:"Add Product-Reactive",
-        canActivate: [authentecationGuard]
+        // canActivate: [authentecationGuard]
     },
     {
         path:"product-details/:id",
@@ -69,9 +70,9 @@ export const routes: Routes = [
 
     },
     {
-        path:"card",
-        component:CardComponent,
-        title:"Card"
+        path:"cart",
+        component:CartComponent,
+        title:"Cart"
 
     },
     {
