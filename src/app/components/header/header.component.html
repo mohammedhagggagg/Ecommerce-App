@@ -73,9 +73,16 @@
             >Login</a
           >
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" routerLink="/cart" routerLinkActive="active">Cart
             <span class="badge bg-primary">{{ cartService.getTotalItems() }}</span>
+          </a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link cart-link" routerLink="/cart" routerLinkActive="active">
+            <i class="fas fa-shopping-cart me-1"></i> 
+            Cart
+            <span class="badge cart-badge">{{ cartService.getTotalItems() }}</span>
           </a>
         </li>
       </ul>

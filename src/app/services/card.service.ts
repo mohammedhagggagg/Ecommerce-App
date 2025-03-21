@@ -24,16 +24,11 @@ export class CardService {
   }
 
   // Remove a product from the cart
-  // removeFromCart(productId: number): void {
-  //   this.cartItems = this.cartItems.filter(item => item.product.id !== productId);
-  // }
-
   removeFromCart(productId: number): void {
-    // حذف العنصر المحدد فقط
     this.cartItems = this.cartItems.filter(item => item.product.id !== productId);
-    localStorage.setItem('cart', JSON.stringify(this.cartItems));
-    // لا تقم بإعادة التوجيه هنا، دع المكون يتولى ذلك
   }
+
+
 
   // Update the quantity of a product in the cart
   updateQuantity(productId: number, quantity: number): void {
