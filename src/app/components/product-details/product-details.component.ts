@@ -1704,6 +1704,13 @@ export class ProductDetailsComponent implements OnInit {
   addToCart(): void {
     this.cartService.addToCart(this.productDetails);
   }
+  isMaxQuantityReached(): boolean {
+    const product = this.productDetails;
+    const cartItems = this.cartService.getCartItems();
+    const cartItem = cartItems.find(item => item.product.id === product.id);
+    const currentQuantity = cartItem ? cartItem.quantity : 0;
+    return currentQuantity >= product.stock; // تحقق مما إذا كانت الكمية في العربة تساوي أو تتجاوز المخزون
+  }
   
   get averageRating(): number {
     if (!this.productDetails.reviews || this.productDetails.reviews.length === 0) {

@@ -9,8 +9,10 @@ export class CardService {
 
  
 
-  private cartItems: { product: Iproduct, quantity: number }[] = [];
-
+  // private cartItems: { product: Iproduct, quantity: number }[] = [];
+  private cartItems: any[] = [];
+  private cartItemsSubject = new BehaviorSubject<any[]>([]); // BehaviorSubject
+  cartItems$ = this.cartItemsSubject.asObservable(); 
   constructor() {}
 
   // Add a product to the cart

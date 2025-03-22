@@ -1,4 +1,188 @@
-.product-container {
+/* تنسيق الحاوية الرئيسية */
+.product-details-container {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  padding-top: 20px;
+}
+
+/* تنسيق صورة المنتج */
+.product-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  max-width: 350px; /* تقليل العرض الأقصى للحاوية */
+  margin: 0 auto; /* توسيط الحاوية */
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* فئة إضافية لتقليل حجم الصورة */
+.smaller-image {
+  max-width: 100%; /* التأكد من أن الصورة لا تتجاوز الحاوية */
+  max-height: 300px; /* تقليل الارتفاع الأقصى للصورة */
+}
+
+/* تأثير التكبير عند التمرير (تم تقليله) */
+.product-image-wrapper:hover .product-image {
+  transform: scale(1.05); /* تقليل التكبير من 1.1 إلى 1.05 */
+}
+
+/* طبقة التراكب (Overlay) مع أيقونة التكبير */
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+.product-image-wrapper:hover .image-overlay {
+  opacity: 1;
+}
+
+.zoom-icon {
+  color: white;
+  font-size: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.product-image-wrapper:hover .zoom-icon {
+  transform: scale(1.2);
+}
+
+/* تنسيق معلومات المنتج */
+.product-info {
+  padding: 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.product-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.product-title::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: #007bff;
+}
+
+/* تنسيق المعلومات */
+.product-meta p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.product-meta strong {
+  color: #333;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #28a745;
+}
+
+.rating {
+  color: #ffc107;
+  font-weight: bold;
+}
+
+.rating .fa-star {
+  margin-right: 5px;
+}
+
+.product-description {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 20px 0;
+}
+
+/* تنسيق الأزرار */
+.product-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.buy-now-btn, .add-to-cart-btn {
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.buy-now-btn {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+}
+
+.buy-now-btn:hover {
+  background-color: #e63946;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(230, 57, 70, 0.3);
+}
+
+.add-to-cart-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
+}
+
+/* تأثير نبض (Pulse) للأزرار */
+.buy-now-btn, .add-to-cart-btn {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 77, 79, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(255, 77, 79, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 77, 79, 0);
+  }
+}
+
+
+/* .product-container {
     display: flex;
     gap: 20px;
   }
@@ -47,5 +231,4 @@
     height: 80px;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
+  } */

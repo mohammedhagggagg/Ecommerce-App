@@ -1,4 +1,50 @@
+<div *ngIf="productDetails" class="product-details-container">
+  <div class="container py-5">
+    <div class="row align-items-center">
+  
+      <div class="col-md-6 mb-4">
+        <div class="product-image-wrapper">
+          <img [src]="productDetails.thumbnail" alt="{{ productDetails.title }}" class="img-fluid product-image">
+          <div class="image-overlay">
+            <i class="fas fa-search-plus zoom-icon"></i>
+          </div>
+        </div>
+      </div>
 
+  
+      <div class="col-md-6">
+        <div class="product-info">
+          <h1 class="product-title">{{ productDetails.title }}</h1>
+          <div class="product-meta">
+            <p><strong>Category:</strong> <span class="badge bg-primary">{{ productDetails.category }}</span></p>
+            <p><strong>Brand:</strong> <span class="badge bg-secondary">{{ productDetails.brand }}</span></p>
+            <p><strong>Price:</strong> <span class="price">${{ productDetails.price }}</span></p>
+            <p><strong>Rating:</strong> 
+              <span class="rating">
+                <i class="fas fa-star"></i> {{ productDetails.rating }}
+              </span>
+            </p>
+          </div>
+          <p class="product-description">{{ productDetails.description }}</p>
+
+         
+          <div class="product-actions">
+            <button class="btn buy-now-btn" >
+              <i class="fas fa-shopping-bag me-2"></i> Buy Now
+            </button>
+            <button class="btn add-to-cart-btn" (click)="addToCart()" [disabled]="productDetails.stock === 0 || isMaxQuantityReached()">
+              <i class="fas fa-cart-plus me-2"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- 
 <div *ngIf="productDetails">
   <div class="product-container">
     <div class="product-image">
@@ -21,4 +67,4 @@
 
 </div>
 
-
+ -->
