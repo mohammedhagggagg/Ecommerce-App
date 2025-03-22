@@ -1,5 +1,5 @@
 
-/* تنسيق البطاقة */
+
 .product-card {
   border: none;
   border-radius: 10px;
@@ -8,13 +8,12 @@
   background: #fff;
 }
 
-/* تأثير الرفع عند التمرير */
+
 .product-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-/* تنسيق الـ Badge لحالة المخزون */
 .stock-badge {
   position: absolute;
   top: 10px;
@@ -30,7 +29,7 @@
   animation: pulse 2s infinite;
 }
 
-/* تنسيق صورة المنتج */
+
 .product-image-wrapper {
   position: relative;
   width: 150px;
@@ -48,12 +47,12 @@
   transition: transform 0.5s ease;
 }
 
-/* تأثير التكبير عند التمرير */
+
 .product-image-wrapper:hover .product-image {
   transform: scale(1.05);
 }
 
-/* طبقة التراكب (Overlay) مع أيقونة التكبير */
+
 .image-overlay {
   position: absolute;
   top: 0;
@@ -82,7 +81,7 @@
   transform: scale(1.2);
 }
 
-/* تنسيق العنوان */
+
 .product-title {
   font-size: 1.2rem;
   font-weight: bold;
@@ -102,7 +101,7 @@
   background-color: #007bff;
 }
 
-/* تنسيق المعلومات */
+
 .product-info {
   font-size: 0.85rem;
   color: #666;
@@ -113,23 +112,23 @@
   color: #333;
 }
 
-/* تنسيق الأزرار */
+
 .product-actions {
   display: flex;
   justify-content: center;
-  gap: 3px; /* تقليل المسافة بين الأزرار من 5px إلى 3px */
+  gap: 3px; 
   border-top: none;
   background: transparent;
   padding-top: 5px;
 }
 
 .view-btn, .add-to-cart-btn, .delete-btn {
-  padding: 4px 10px; /* تقليل الحشوة من 6px 15px إلى 4px 10px */
-  font-size: 0.75rem; /* تقليل حجم الخط من 0.85rem إلى 0.75rem */
+  padding: 4px 10px;
+  font-size: 0.75rem; 
   font-weight: bold;
-  border-radius: 20px; /* تقليل الحواف الدائرية من 25px إلى 20px */
+  border-radius: 20px; 
   transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* تقليل الظل */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 .view-btn {
@@ -173,7 +172,7 @@
   box-shadow: 0 3px 6px rgba(220, 53, 69, 0.3); /* تقليل الظل */
 }
 
-/* تأثير نبض (Pulse) */
+
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -181,7 +180,7 @@
   }
   70% {
     transform: scale(1.05);
-    box-shadow: 0 0 0 6px rgba(255, 77, 79, 0); /* تقليل نطاق النبض */
+    box-shadow: 0 0 0 6px rgba(255, 77, 79, 0); 
   }
   100% {
     transform: scale(1);

@@ -1709,7 +1709,7 @@ export class ProductDetailsComponent implements OnInit {
     const cartItems = this.cartService.getCartItems();
     const cartItem = cartItems.find(item => item.product.id === product.id);
     const currentQuantity = cartItem ? cartItem.quantity : 0;
-    return currentQuantity >= product.stock; // تحقق مما إذا كانت الكمية في العربة تساوي أو تتجاوز المخزون
+    return currentQuantity >= product.stock; 
   }
   
   get averageRating(): number {
